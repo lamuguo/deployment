@@ -24,4 +24,4 @@ services:
   blog:
     build: ./blog
     restart: always
-    command: [-http='0.0.0.0:80'", "-vhost_map='blog.tech-meetup.com=testing/|lamuguo.tech-meetup.com=lamuguo/'"]
+    command: ["-http='0.0.0.0:80'", "-vhost_map='blog.tech-meetup.com=testing/|lamuguo.tech-meetup.com=lamuguo/'"]
