@@ -1,0 +1,27 @@
+version: '3'
+
+services:
+
+  proxy:
+    build: ./proxy
+    restart: always
+    expose:
+      - 80
+      - 443
+    ports:
+      - 80:80
+      - 443:443
+
+  site:
+    build: ./site
+    restart: always
+    # TODO(lamuguo): Disable export and ports below.
+    # expose:
+    #  - 8080
+    #ports:
+    #  - 8080:80
+
+  blog:
+    build: ./blog
+    restart: always
+    command: [-http='0.0.0.0:80'", "-vhost_map='blog.tech-meetup.com=testing/|lamuguo.tech-meetup.com=lamuguo/'"]
